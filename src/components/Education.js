@@ -1,3 +1,4 @@
+import React from "react";
 function Education() {
     return (
       <div>
@@ -7,3 +8,4 @@ function Education() {
     );
   }
   
+  export default Education;
