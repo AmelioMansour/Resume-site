@@ -13,25 +13,27 @@ function Home() {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-  
+
   return (
     <div className="flex">
-      <div class="mrpic">
+      <div className="mrpic">
         <img src={headshot} alt="headshot" />
-        <div class="special1" id="name" className="absolute top-1/4 left-1/4 text-white animate-slideInDown">Amelio Mansour</div>
-        <div class="special2" className="absolute top-1/4 left-1/4 text-white animate-slideInDown" id="title">Software Developer</div>
+        <div className="special1" id="name" className="absolute top-1/4 left-1/4 text-white animate-slideInDown">Amelio Mansour</div>
+        <div className="special2" className="absolute top-1/4 left-1/4 text-white animate-slideInDown" id="title">Software Developer</div>
       </div>
-  
-      <div className="flex items-start w-3/5">  {/* Wrapper div */}
+
+      <div className="flex items-start w-full">
         <Lottie
           options={defaultOptions}
           height={400}
           width={400}
           alt="lottie animation of software dev"
-          style={{border: "1px solid black"}}
+          className="mr-4"
+          style={{ border: "1px solid black" }}
         />
-       
-        <div className="ml-6 flex flex-col w-1/2" style={{border: "1px solid black"}}>
+
+
+        <div className="ml-6 flex flex-col" style={{ border: "1px solid black" }}>
           <p>Sterling Heights, MI | ameliomansour612@gmail.com | (586) 233-3132</p>
           <p>Career Focus: Software Development/Engineer Role</p>
           <p>Information Technology Senior with development skills, previous internship experience, and a knowledge of a variety of
@@ -41,7 +43,8 @@ function Home() {
       </div>
     </div>
   );
-  
+
+
 }
 
 export default Home;
