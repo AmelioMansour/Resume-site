@@ -3,6 +3,31 @@
 @import 'tailwindcss/utilities';
 
 
+
+
+.drawerPaper {
+  width: 250px;
+  background-color: #B59A57;
+  color: #fefefe;
+  border: none;
+}
+
+.content {
+  flex-grow: 1;
+  min-height: 100vh;
+}
+
+.toolbar {
+  /* You'll have to add styling here based on Material UI's specifications */
+}
+
+/* Add any other styling as needed */
+
+.appBar {
+  background-color: #B59A57;
+
+}
+
 .desktop-nav {
   @apply hidden md:flex;
 }
@@ -23,6 +48,11 @@ code {
 /* NavBar container styles */
 .navbar {
   @apply bg-[#B59A57] transition-all duration-300 ease-in-out py-4; /* Increased vertical padding */
+  margin-bottom: 20px; /* Add this line */
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
 }
 
 /* Link styles */
@@ -44,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   position: absolute;
   top: 20%;
-  left: 10%; /* More to the left on mobile */
+  left: 5%; /* More to the left on mobile */
 }
 
 @media (min-width: 768px) { /* 768px is the default breakpoint for 'md' in Tailwind */
@@ -58,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   position: absolute;
   top: 30%;
-  left: 10%; /* More to the left on mobile */
+  left: 7%; /* More to the left on mobile */
 }
 
 @media (min-width: 768px) {
@@ -77,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   text-align: center;
   color: white;
+  margin-top: 40px;
 }
 /* .special1{
   position: absolute;

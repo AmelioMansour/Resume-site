@@ -1,40 +1,108 @@
-import React, { useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
-;
+import React, { Component } from 'react';
+import { List, Divider, ListItem, ListItemText, Hidden, Drawer, Typography, AppBar, Toolbar, IconButton, Button } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import { withStyles } from '@material-ui/core/styles';
 
-function NavBar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const drawerWidth = 250;
+const styles = theme => ({
+    drawerPaper: {
+        width: drawerWidth,
+        backgroundColor: "#B59A57",
+        color: "#fefefe",
+        border: "none",
+    },
+    content: {
+        flexGrow: 1,
+        minHeight: "100vh",
+    },
+    toolbar: theme.mixins.toolbar,
+    navItem: {
+        marginRight: theme.spacing(2),
+        color: "#fefefe",
+        textDecoration: "none"
+    },
+    appBar: {
+        backgroundColor: "#B59A57"
+    }
+});
 
-    return (
-        <div className="relative bg-blue-500 p-4 shadow-lg">
-            {/* Always show the desktop navbar on medium screens and above */}
-            <div className="hidden md:flex justify-between items-center">
-                <a href="#home" className="nav-link text-white mx-2">Home</a>
-                <a href="#education" className="nav-link text-white mx-2">Education</a>
-                <a href="#experience" className="nav-link text-white mx-2">Experience</a>
-                <a href="#projects" className="nav-link text-white mx-2">Projects</a>
+class Layout extends Component {
+    state = {
+        mobileOpen: false,
+    };
+
+    handleDrawerToggle = () => {
+        this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+    };
+
+    render() {
+        const { classes } = this.props;
+        const { mobileOpen } = this.state;
+
+        const drawer = (
+            <div>
+                <List>
+                    {['Home', 'Education', 'Experience', 'Projects'].map(text => (
+                        <div key={text}>
+                            <ListItem button component="a" href={`#${text.toLowerCase()}`} onClick={mobileOpen ? this.handleDrawerToggle : null}>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                            <Divider />
+                        </div>
+                    ))}
+                </List>
             </div>
-            
-            {/* Mobile navbar button */}
-            <div className="md:hidden flex justify-between items-center">
-                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                    {mobileMenuOpen ? <FiX className="text-white h-6 w-6" /> : <FiMenu className="text-white h-6 w-6" />}
-                </button>
+        );
+
+        return (
+            <div>
+                <Hidden mdUp implementation="css">
+                    <AppBar position="fixed" className={classes.appBar}>
+                        <Toolbar>
+                            <IconButton
+                                color="inherit"
+                                aria-label="Open drawer"
+                                onClick={this.handleDrawerToggle}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography variant="h6" color="inherit">
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                </Hidden>
+                <Hidden smDown implementation="css">
+                    <AppBar position="fixed" className={classes.appBar}>
+                        <Toolbar>
+                            <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
+                            </Typography>
+                            {['Home', 'Education', 'Experience', 'Projects'].map(text => (
+                                <a href={`#${text.toLowerCase()}`} className={classes.navItem} key={text}>
+                                    <Button color="inherit">{text}</Button>
+                                </a>
+                            ))}
+                        </Toolbar>
+                    </AppBar>
+                </Hidden>
+                <nav>
+                    <Hidden mdUp implementation="css">
+                        <Drawer
+                            variant="temporary"
+                            open={mobileOpen}
+                            onClose={this.handleDrawerToggle}
+                            classes={{ paper: classes.drawerPaper }}
+                            anchor="left"
+                        >
+                            {drawer}
+                        </Drawer>
+                    </Hidden>
+                </nav>
+                {/* <main className={classes.content}>
+                    <Hidden mdUp implementation="css"><div className={classes.toolbar} /></Hidden>
+                </main> */}
             </div>
-            
-            {/* Mobile navigation, which shows or hides based on state */}
-            {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full">
-                    <a href="#home" className="block bg-blue-500 text-white py-2 px-4">Home</a>
-                    <a href="#education" className="block bg-blue-500 text-white py-2 px-4">Education</a>
-                    <a href="#experience" className="block bg-blue-500 text-white py-2 px-4">Experience</a>
-                    <a href="#projects" className="block bg-blue-500 text-white py-2 px-4">Projects</a>
-                </div>
-            )}
-        </div>
-    );
-    
+        );
+    }
 }
 
-export default NavBar;
+export default withStyles(styles)(Layout);
