@@ -2,6 +2,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
+.desktop-nav {
+  @apply hidden md:flex;
+}
+
+/* This makes the mobile navbar displayed on mobile and hidden on larger screens */
+.mobile-nav {
+  @apply flex md:hidden;
+}
+
 body {
   @apply bg-e6e6e6 m-0 font-spartan text-gray-900;
 }
@@ -30,19 +40,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Name */
 #name {
-  @apply text-7xl text-[#B59A57] font-bold mb-8;
+  @apply text-3xl md:text-7xl text-[#B59A57] font-bold mb-8;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   position: absolute;
   top: 20%;
-  left: 15%;
+  left: 10%; /* More to the left on mobile */
 }
-#title{
-  @apply text-5xl text-[#B59A57] font-bold mb-3;
+
+@media (min-width: 768px) { /* 768px is the default breakpoint for 'md' in Tailwind */
+  #name {
+    left: 15%; /* Reset for medium screens */
+  }
+}
+
+#title {
+  @apply text-2xl md:text-5xl text-[#B59A57] font-bold mb-3;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   position: absolute;
   top: 30%;
-  left: 20%;
+  left: 10%; /* More to the left on mobile */
 }
+
+@media (min-width: 768px) {
+  #title {
+    left: 20%; /* Reset for medium screens */
+  }
+}
+
+
+
+
 .mrpic{
   
   width: 100%;

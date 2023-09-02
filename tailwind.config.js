@@ -18,6 +18,10 @@ module.exports = {
       }
     }
   },
-  variants: {},
+  variants: {
+    extend: {
+      display: ['responsive']
+    }
+  },
   plugins: []
 }
