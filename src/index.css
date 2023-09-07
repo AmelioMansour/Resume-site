@@ -2,9 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
-
-
 .drawerPaper {
   width: 250px;
   background-color: #B59A57;
@@ -25,7 +22,6 @@
 
 .appBar {
   background-color: #B59A57;
-
 }
 
 .desktop-nav {
@@ -68,67 +64,60 @@ code {
 h1, h2, h3, h4, h5, h6 {
   @apply font-bold;
 }
+
 /* Name */
 #name {
-  @apply text-3xl md:text-7xl text-[#B59A57] font-bold mb-8;
+  @apply text-3xl md:text-5xl lg:text-7xl text-[#B59A57] font-bold mb-4;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  position: absolute;
+
   top: 20%;
   left: 5%; /* More to the left on mobile */
 }
 
-@media (min-width: 768px) { /* 768px is the default breakpoint for 'md' in Tailwind */
+@media (min-width: 768px) {
+  /* 768px is the default breakpoint for 'md' in Tailwind */
   #name {
+    @apply text-5xl lg:text-6xl; /* Adjust font sizes for medium screens and larger */
     left: 15%; /* Reset for medium screens */
   }
 }
 
+@media (min-width: 1024px) {
+  /* 1024px is the default breakpoint for 'lg' in Tailwind */
+  #name {
+    @apply text-6xl lg:text-7xl; /* Adjust font sizes for larger screens */
+  }
+}
+
 #title {
-  @apply text-2xl md:text-5xl text-[#B59A57] font-bold mb-3;
+  @apply text-2xl md:text-4xl lg:text-5xl text-[#B59A57] font-bold mb-3;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  position: absolute;
+
   top: 30%;
   left: 7%; /* More to the left on mobile */
 }
 
 @media (min-width: 768px) {
   #title {
+    @apply text-8xl lg:text-5xl; /* Adjust font sizes for medium screens and larger */
     left: 20%; /* Reset for medium screens */
   }
 }
 
-
-
-
-.mrpic{
-  
-  width: 100%;
-  height: auto;
-  position: relative;
-  text-align: center;
-  color: white;
-  margin-top: 40px;
+@media (min-width: 1024px) {
+  #title {
+    @apply text-5xl lg:text-6xl; /* Adjust font sizes for larger screens */
+  }
 }
+
+
 /* Updated Lottie animation styles */
 .lottie-animation {
-  position: absolute;
-  top: calc(30% + 96px); /* Adjust as needed */
-  left: 30%;
-  transform: translateX(-50%);
   max-width: 100%;
   height: 200px;
- 
-}
-/* .special1{
   position: absolute;
-  top: 20%;
-  left: 15%;
 }
-.special2{
-  position: absolute;
-  top: 30%;
-  left: 20%;
-} */
+
 
 @keyframes slideInDown {
   from {
