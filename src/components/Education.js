@@ -18,7 +18,7 @@ function Education() {
           <li>Consistent academic performance with a GPA of 3.63.</li>
           <li>Anticipated graduation in December 2023 with a Bachelor's degree.</li>
         </ul>
-        
+        <br></br>
       </div>
     );
 }

@@ -178,9 +178,15 @@ h3 {
 }
 
 /* Paragraphs and general text content */
-p {
-  @apply text-lg my-4 leading-relaxed;
+p,li {
+  @apply text-lg my-4 leading-relaxed text-left px-4;  
+  @apply md:px-60;  
 }
+li{
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
 
 /* Container for each section of the website (e.g. Education, Experience, etc.) */
 .section {
