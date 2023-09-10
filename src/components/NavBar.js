@@ -4,6 +4,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 250;
+
+
+
+
 const styles = theme => ({
     drawerPaper: {
         width: drawerWidth,
@@ -26,14 +30,57 @@ const styles = theme => ({
     }
 });
 
+
 class Layout extends Component {
     state = {
         mobileOpen: false,
     };
 
+    offset = 60;  // Define offset at the class level
+
+    componentDidMount() {
+        this.addSmoothScrolling();
+    }
+
+    componentWillUnmount() {
+        this.removeSmoothScrolling();
+    }
+
+    addSmoothScrolling() {
+        this.anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+        this.anchorLinks.forEach(link => {
+            link.addEventListener('click', this.handleSmoothScroll);
+        });
+    }
+
+    removeSmoothScrolling() {
+        if (this.anchorLinks) {
+            this.anchorLinks.forEach(link => {
+                link.removeEventListener('click', this.handleSmoothScroll);
+            });
+        }
+    }
+
+    handleSmoothScroll = (event) => {
+        const targetId = event.currentTarget.getAttribute("href");
+        const targetPosition = document.querySelector(targetId).offsetTop;
+
+        window.scrollTo({
+            top: targetPosition - this.offset,  // Use this.offset
+            behavior: "smooth"
+        });
+
+        event.preventDefault();
+
+
+    };
+
+
     handleDrawerToggle = () => {
         this.setState(state => ({ mobileOpen: !state.mobileOpen }));
     };
+
 
     render() {
         const { classes } = this.props;
@@ -42,7 +89,7 @@ class Layout extends Component {
         const drawer = (
             <div>
                 <List>
-                    {['Home', 'Education', 'Experience', 'Projects'].map(text => (
+                    {['Home', 'Education', 'Experience', 'Projects', 'Showcase'].map(text => (
                         <div key={text}>
                             <ListItem button component="a" href={`#${text.toLowerCase()}`} onClick={mobileOpen ? this.handleDrawerToggle : null}>
                                 <ListItemText primary={text} />
@@ -76,7 +123,7 @@ class Layout extends Component {
                         <Toolbar>
                             <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
                             </Typography>
-                            {['Home', 'Education', 'Experience', 'Projects'].map(text => (
+                            {['Home', 'Education', 'Experience', 'Projects', 'Showcase'].map(text => (
                                 <a href={`#${text.toLowerCase()}`} className={classes.navItem} key={text}>
                                     <Button color="inherit">{text}</Button>
                                 </a>

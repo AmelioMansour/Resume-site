@@ -3,7 +3,7 @@ import React from "react";
 function Projects() {
     return (
         <div>
-            <h2>Project Experience</h2>
+            <h2>Projects</h2>
 
             <div className="project">
                 <h3>ChefBot AI</h3>

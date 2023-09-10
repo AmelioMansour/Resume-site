@@ -5,6 +5,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Home from './components/Home';
+import Showcase from './components/Showcase';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <div id="education"><Education /></div>
         <div id="experience"><Experience /></div>
         <div id="projects"><Projects /></div>
+        <div id="showcase" style={{ marginBottom: '70vh' }}><Showcase /></div>
       </div>
     </Router>
   );
