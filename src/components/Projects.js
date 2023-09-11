@@ -8,9 +8,9 @@ function Projects() {
             <div className="project">
                 <h3>ChefBot AI</h3>
                 <ul>
-                    <p>For my senior capstone project, I am developing a web application that enables end-users to explore a wide range of possible
+                    <p>For my senior capstone project, I developed a web application that enables end-users to explore a wide range of possible
                         new recipes using the cooking ingredients available in their kitchens. Users are able to enter cooking ingredients and they will receive three possible
-                        recipes they can create, accompanied by cooking instructions and measurements. In addition, users are able to save the recipes that they like to their profile
+                        recipes they can create, accompanied by cooking instructions and measurements. In addition, users are also able to save the recipes that they like to their profile
                         to be able to create their own "cook book".</p>
                     <li>Technologies: Artificial Intelligence/LLM, React, JavaScript, Splide, JSX Element, Functional Component, Hooks in React, React-Router Dom, and Github.</li>
                     <li><a href="https://github.com/AmelioMansour/Capstone-Project" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}>https://github.com/AmelioMansour/Capstone-Project</a></li>
