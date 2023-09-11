@@ -35,7 +35,28 @@ function Experience() {
                     <li>Recreated systems to provide data analytics to businesses and developed scalability for data to aid business growth.</li>
                 </ul>
             </div>
-<br></br>
+            <div className="job">
+                <h3>Accounts Payable Specialist</h3>
+                <h4>THE ELIA GROUP, Birmingham, MI</h4>
+                <p>Jul 2021 - Aug 2021</p>
+                <ul>
+                    <li>Entered Invoices into the QuickBooks system.</li>
+                    <li>Reconciled balances to month-end statements.</li>
+                    <li>Communicated with restaurant managers to verify orders from vendors.</li>
+                </ul>
+            </div>
+
+            <div className="job">
+                <h3>Sales Clerk</h3>
+                <h4>MetroPCS</h4>
+                <p>Jun 2017 - Sep 2017</p>
+                <ul>
+                    <li>Assisted customers in selecting suitable mobile plans and devices based on their specific needs</li>
+                    <li>Maintained inventory of devices and accessories </li>
+                </ul>
+
+            </div>
+            <br></br>
         </div>
     );
 }
