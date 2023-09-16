@@ -89,7 +89,7 @@ class Layout extends Component {
         const drawer = (
             <div>
                 <List>
-                    {['Home', 'Education', 'Experience', 'Projects', 'Showcase'].map(text => (
+                    {['Home', 'Education', 'Experience', 'Projects', 'Achievments'].map(text => (
                         <div key={text}>
                             <ListItem button component="a" href={`#${text.toLowerCase()}`} onClick={mobileOpen ? this.handleDrawerToggle : null}>
                                 <ListItemText primary={text} />
@@ -123,7 +123,7 @@ class Layout extends Component {
                         <Toolbar>
                             <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
                             </Typography>
-                            {['Home', 'Education', 'Experience', 'Projects', 'Showcase'].map(text => (
+                            {['Home', 'Education', 'Experience', 'Projects', 'Achievments'].map(text => (
                                 <a href={`#${text.toLowerCase()}`} className={classes.navItem} key={text}>
                                     <Button color="inherit">{text}</Button>
                                 </a>
